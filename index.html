@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimus Health Solutions - Prescription Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=UberMove:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <h2>Optimus Health Solutions</h2>
+                </div>
+            </div>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#" class="nav-link">How it works</a></li>
+                    <li><a href="#" class="nav-link">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Business
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-link">For Independent Pharmacies</a></li>
+                            <li><a href="#" class="dropdown-link">Earn as a Driver</a></li>
+                            <li><a href="#" class="dropdown-link">Investors</a></li>
+                            <li><a href="#" class="dropdown-link">Other Businesses</a></li>
+                            <li><a href="#" class="dropdown-link">Blog</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <span>EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <a href="#" class="nav-link">Need Help?</a>
+                <a href="#" class="nav-link">Login</a>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <div class="contact-header">
+        <div class="contact-info">
+            <span>Need Help? Please Call or Text 917-993-0549</span>
+            <span class="contact-separator">|</span>
+            <span>Email us: support@optimushs.com</span>
+            <span class="contact-separator">|</span>
+            <span class="hours-info">
+                <i class="fas fa-clock"></i>
+                Mon-Fri: 8a.m.-7p.m. | Sat: 8a.m.-1p.m. | Sun: Closed
+            </span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container" id="mainFormContent">
+            <!-- Left Panel - Form Section -->
+            <div class="left-panel">
+                <div class="location-context">
+                    <span>Newark, New Jersey, US</span>
+                    <a href="#" class="change-city" onclick="showCitySelector()">Change city or zip code</a>
+                </div>
+                
+                <h1 class="main-heading">Request your prescription delivery</h1>
+         
+                
+                <form class="request-form">
+                    <!-- Pickup Location -->
+                    <div class="form-group pickup-group">
+                        <div class="input-container">
+                            <i class="fas fa-circle pickup-icon"></i>
+                            <input type="text" id="pickup-location" placeholder="Pickup location" class="form-input">
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Dropoff Location -->
+                    <div class="form-group dropoff-group">
+                        <div class="input-container">
+                            <i class="fas fa-square dropoff-icon"></i>
+                            <input type="text" id="dropoff-location" placeholder="Drop-off address" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <!-- Date and Time Pickers -->
+                    <div class="datetime-container">
+                        <div class="form-group date-group">
+                            <div class="input-container">
+                                <i class="fas fa-calendar-alt"></i>
+                                <input type="text" id="delivery-date" placeholder="Date" class="form-input" value="Today">
+                            </div>
+                        </div>
+                        <div class="form-group time-group">
+                            <div class="input-container">
+                                <i class="fas fa-clock"></i>
+                                <input type="text" id="delivery-time" placeholder="Time" class="form-input" value="Now">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Checkout Request Button -->
+                    <div class="confirm-request-section">
+                        <button id="checkoutRequestBtn" class="confirm-request-btn" onclick="checkoutRequest()">
+                            <i class="fas fa-shopping-cart confirm-icon"></i>
+                            <span class="confirm-text">Checkout Request</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Destination Suggestions -->
+                    <div class="suggestions-section">
+                        <h3>Pharmacy suggestions</h3>
+                        <div class="suggestion-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="suggestion-content">
+                                <div class="suggestion-name">CVS Pharmacy - Downtown</div>
+                                <div class="suggestion-address">123 Main St, Newark, NJ 07102</div>
+                            </div>
+                        </div>
+                        <div class="suggestion-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="suggestion-content">
+                                <div class="suggestion-name">Walgreens - Medical Center</div>
+                                <div class="suggestion-address">456 Health Ave, Newark, NJ 07103</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Right Panel - Map Section -->
+            <div class="right-panel">
+                <div id="map" class="map-container">
+                    <!-- Google Maps will be loaded here -->
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Interactive Map Loading...</p>
+                        <p>Pharmacy locations will be displayed here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Cards Section -->
+        <div class="services-section">
+            <div class="services-heading">
+                <h2>Our Services</h2>
+                <p>When you refill, transfer prescription or schedule essential healthcare services through our platform, you're connecting with our trusted local independent pharmacies near you. Together, we're strengthening our communities and helping independent pharmacies thrive</p>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <h3>Refill a Prescription</h3>
+                    <p>We fill new and existing prescriptions in-store, by phone, and <span class="highlight">online</span>.</p>
+                    <button class="service-btn" onclick="handleRefillPrescription()">Refill Now</button>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Transfer a Prescription</h3>
+                    <p>Transfer your prescriptions from your old pharmacy to your pharmacy using our simple and secure online <span class="highlight">transfer form</span>.</p>
+                    <button class="service-btn" onclick="handleTransferPrescription()">Transfer Now</button>
+                </div>
+                
+                <div class="service-card contact-card">
+                    <h3>Schedule Essential Healthcare Services</h3>
+                    <p>Schedule essential healthcare services with your pharmacy such as <span class="highlight">vaccination, immunization, health screenings, and POC testing</span>, etc.</p>
+                    <button class="service-btn" onclick="handleContactUs()">Schedule Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Content Sections -->
+        <div class="additional-content">
+            <!-- Refill Prescriptions Section -->
+            <section id="refill-section" class="content-section">
+                <div class="section-container">
+                    <h2>Refill Your Prescriptions</h2>
+                    <div class="refill-methods">
+                        <div class="method-card">
+                            <i class="fas fa-laptop"></i>
+                            <h4>Refill Online</h4>
+                            <p>Access your prescriptions through our secure online patient portal.</p>
+                            <button class="method-btn" onclick="showLoginModal()">Refill Now</button>
+                        </div>
+                        <div class="method-card">
+                            <i class="fas fa-phone"></i>
+                            <h4>Refill by Phone</h4>
+                            <p>Call us directly to refill your prescriptions with our staff.</p>
+                            <button class="method-btn" id="callNowBtn" onclick="showPhoneNumber()">Call Now</button>
+                            <div id="phoneNumberDisplay" class="phone-number-display" style="display: none;">
+                                <div class="phone-number-container">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span class="phone-number">(917) - 993 - 0549</span>
+                                    <button class="close-phone-btn" onclick="hidePhoneNumber()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transfer Prescriptions Section -->
+            <section id="transfer-section" class="content-section">
+                <div class="section-container">
+                    <h2>Transfer Your Prescriptions</h2>
+                    <p style="margin-top: 8px; color: #6b6b6b; font-size: 16px;">Need help? Text or call us at <strong>917-993-0549</strong></p>
+                    <div class="transfer-process">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Complete Transfer Form</h4>
+                                <p>Fill out our secure online transfer form with your prescription details.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>We Contact Your Pharmacy</h4>
+                                <p>Our team will contact your current pharmacy to transfer your prescriptions.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Prescription Ready</h4>
+                                <p>We'll notify you when your prescriptions are ready for delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transfer-form">
+                        <h3>Transfer Your Prescription</h3>
+                        <form id="transferPrescriptionForm" class="transfer-form-fields">
+                            <div class="form-section">
+                                <h4>Personal Information</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Phone Number *</label>
+                                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(555) 123-4567" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dateOfBirth">Date of Birth *</label>
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="emailAddress">Email Address</label>
+                                        <input type="email" id="emailAddress" name="emailAddress" placeholder="you@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="homeAddress">Home Address</label>
+                                        <input type="text" id="homeAddress" name="homeAddress" placeholder="Street address, city, state, zip" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h4>Pharmacy Information</h4>
+                                
+                                <h5 style="color: #8B4B8C; font-size: 16px; font-weight: 600; margin: 20px 0 15px 0;">Previous Pharmacy (transfer from)</h5>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="previousPharmacyName">Previous Pharmacy Name *</label>
+                                        <input type="text" id="previousPharmacyName" name="previousPharmacyName" placeholder="e.g., CVS, Walgreens, etc." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="previousPharmacyPhone">Previous Pharmacy Phone *</label>
+                                        <input type="tel" id="previousPharmacyPhone" name="previousPharmacyPhone" placeholder="(555) 123-4567" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="previousPharmacyAddress">Previous Pharmacy Address</label>
+                                    <input type="text" id="previousPharmacyAddress" name="previousPharmacyAddress" placeholder="Street address, city, state, zip">
+                                </div>
+
+                                <h5 style="color: #8B4B8C; font-size: 16px; font-weight: 600; margin: 30px 0 15px 0;">New Pharmacy (transfer to)</h5>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="currentPharmacy">New Pharmacy Name *</label>
+                                        <input type="text" id="currentPharmacy" name="currentPharmacy" placeholder="e.g., CVS, Walgreens, Rite Aid, etc." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pharmacyPhone">New Pharmacy Phone *</label>
+                                        <input type="tel" id="pharmacyPhone" name="pharmacyPhone" placeholder="(555) 123-4567" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pharmacyAddress">New Pharmacy Address</label>
+                                    <input type="text" id="pharmacyAddress" name="pharmacyAddress" placeholder="Street address, city, state, zip">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="prescription-header">
+                                    <i class="fas fa-pills prescription-icon"></i>
+                                    <div class="prescription-title">
+                                        <h4>Prescriptions</h4>
+                                        <p>Add the medication name and Rx number for all that you'd like to transfer</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="transfer-all-section">
+                                    <label class="transfer-all-checkbox">
+                                        <input type="checkbox" id="transferAll" name="transferAll">
+                                        <span class="checkmark"></span>
+                                        Transfer all of my medications
+                                    </label>
+                                </div>
+                                
+                                <div class="medications-container" id="medicationsContainer">
+                                    <div class="medication-row">
+                                        <div class="form-group">
+                                            <input type="text" name="medicationName[]" placeholder="Medication Name" class="medication-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="rxNumber[]" placeholder="Rx Number" class="medication-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="add-medication-section">
+                                    <button type="button" class="add-medication-btn" onclick="addAnotherMedication()">
+                                        + ADD ANOTHER MEDICATION
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h4>Additional Information</h4>
+                                <div class="form-group">
+                                    <label for="additionalInfo">Additional Notes or Special Instructions</label>
+                                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Any special instructions, allergies, or additional information we should know..." rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferredContact">Preferred Contact Method</label>
+                                    <select id="preferredContact" name="preferredContact">
+                                        <option value="">Select preferred method</option>
+                                        <option value="phone">Phone Call</option>
+                                        <option value="email">Email</option>
+                                        <option value="text">Text Message</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="consent-checkbox">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <label for="consent">I consent to Optimus Health Solutions contacting my current pharmacy to transfer my prescriptions and understand that this process may take 1-3 business days. *</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Submit Transfer Request</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Us Section -->
+            <section id="contact-section" class="content-section">
+                <div class="section-container">
+                    <h2>Contact Us</h2>
+                    <div class="contact-grid">
+                        <div class="contact-info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Visit Our Store</h4>
+                            <p>123 Health Street<br>Newark, NJ 07102</p>
+                            <p><strong>Hours:</strong><br>
+                            Mon-Fri: 8AM-8PM<br>
+                            Sat: 9AM-6PM<br>
+                            Sun: 10AM-4PM</p>
+                        </div>
+                        <div class="contact-info-card">
+                            <i class="fas fa-phone"></i>
+                            <h4>Call Us</h4>
+                            <p><strong>Main Line:</strong><br>917-993-0549</p>
+                            <p><strong>New Patients:</strong><br>917-993-0549</p>
+                            <p><strong>Emergency:</strong><br>917-993-5106</p>
+                        </div>
+                        <div class="contact-info-card">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email Us</h4>
+                            <p><strong>General:</strong><br>info@optimushs.com</p>
+                            <p><strong>Prescriptions:</strong><br>rx@optimushs.com</p>
+                            <p><strong>Support:</strong><br>support@optimushs.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form class="message-form">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your Name" required>
+                                <input type="email" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="tel" placeholder="Phone Number">
+                                <select required>
+                                    <option value="">Select Subject</option>
+                                    <option value="prescription">Prescription Question</option>
+                                    <option value="delivery">Delivery Inquiry</option>
+                                    <option value="transfer">Prescription Transfer</option>
+                                    <option value="general">General Question</option>
+                                </select>
+                            </div>
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Checkout Page (Hidden by default) -->
+    <div id="checkoutPage" class="checkout-page" style="display: none;">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <button class="back-btn" onclick="goBackToForm()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Form
+                </button>
+                <div class="secure-checkout-header">
+                    <i class="fas fa-lock"></i>
+                    <h2>Secure Checkout</h2>
+                </div>
+            </div>
+            
+            <div class="checkout-options">
+                <!-- Returning Customer Section -->
+                <div class="checkout-section returning-customer">
+                    <h3>Returning Customer</h3>
+                    <form id="returningCustomerForm" class="checkout-form">
+                        <div class="form-group">
+                            <label for="checkoutEmail">E-mail Address:</label>
+                            <input type="email" id="checkoutEmail" name="email" placeholder="Example: name@domain.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="checkoutPassword">Password:</label>
+                            <input type="password" id="checkoutPassword" name="password" required>
+                            <small class="password-hint">Password is case sensitive</small>
+                        </div>
+                        
+                        <div class="forgot-password-link">
+                            <a href="#" onclick="showForgotPassword()">Forgot your password?</a>
+                        </div>
+                        
+                        <button type="submit" class="checkout-btn returning-customer-btn">
+                            CHECK OUT
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Center Separator -->
+                <div class="checkout-separator">
+                    <div class="separator-line"></div>
+                    <div class="or-circle">OR</div>
+                    <div class="separator-line"></div>
+                </div>
+                
+                <!-- Guest Checkout Section -->
+                <div class="checkout-section guest-checkout">
+                    <h3>Guest Checkout</h3>
+                    <div class="guest-options">
+                        <button type="button" class="checkout-btn guest-btn" onclick="proceedAsGuest()">
+                            CHECK OUT
+                        </button>
+                        
+                        <button type="button" class="visa-checkout-btn" onclick="proceedWithVisaCheckout()">
+                            <i class="fas fa-arrow-right"></i>
+                            VISA Checkout
+                        </button>
+                        
+                        <p class="create-account-text">Create an account later.</p>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-method-logo optimus">Optimus</div>
+                            <div class="payment-method-logo visa">VISA</div>
+                            <div class="payment-method-logo mastercard">MC</div>
+                            <div class="payment-method-logo amex">AE</div>
+                            <div class="payment-method-logo discover">DISC</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checkout-footer">
+                <p>Need Help? Call Optimus Health Solutions Customer Care at <strong>917-993-0549</strong>, or email us at <strong>support@optimushs.com</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Details Page (Hidden by default) -->
+    <div id="paymentPage" class="payment-page" style="display: none;">
+        <div class="payment-container">
+            <div class="payment-header">
+                <button class="back-btn" onclick="goBackToCheckout()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Checkout
+                </button>
+                <h2>Payment Information</h2>
+            </div>
+            
+            <div class="payment-content">
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-item">
+                        <span>Prescription Delivery Service</span>
+                        <span>$5.99</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Processing Fee</span>
+                        <span>$2.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>$7.99</span>
+                    </div>
+                </div>
+                
+                <div class="payment-section">
+                    <h3>Payment Details</h3>
+                    <form id="paymentForm" class="payment-form">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date *</label>
+                                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV *</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cardholderName">Cardholder Name *</label>
+                            <input type="text" id="cardholderName" name="cardholderName" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="billingAddress">Billing Address *</label>
+                            <input type="text" id="billingAddress" name="billingAddress" placeholder="123 Main St, City, State 12345" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <button type="button" class="back-to-checkout-btn" onclick="goBackToCheckout()">Back to Checkout</button>
+                            <button type="submit" class="confirm-payment-btn">
+                                <i class="fas fa-lock"></i>
+                                Confirm Payment & Submit Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Refill Modal -->
+    <div id="loginModal" class="login-modal" style="display: none;">
+        <div class="login-modal-content">
+            <div class="login-header">
+                <div class="login-header-bg">
+                    <h2>Log In</h2>
+                    <p>The easiest way to access your prescriptions</p>
+                </div>
+            </div>
+            
+            <div class="login-form-section">
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input-container">
+                            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword()">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">LOG IN</button>
+                    
+                    <div class="forgot-password">
+                        <a href="#" onclick="showForgotPassword()">Forgot your password?</a>
+                    </div>
+                </form>
+                
+                <div class="login-divider"></div>
+                
+                <div class="login-actions">
+                    <button class="action-btn create-account" onclick="showCreateAccount()">
+                        <i class="fas fa-user-plus"></i>
+                        CREATE AN ACCOUNT
+                    </button>
+                    <button class="action-btn refill-without" onclick="refillWithoutAccount()">
+                        <i class="fas fa-map-marker-alt"></i>
+                        REFILL WITHOUT AN ACCOUNT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Note: Replace with your actual Google Maps API key for full functionality -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places"></script>
+    <script src="script.js"></script>
+</body>
+</html>
